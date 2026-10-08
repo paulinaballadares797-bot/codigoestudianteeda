@@ -100,16 +100,24 @@ public class ListaEnlazadaSimple<T> {
      * @return true si el valor existe en algun nodo, false en caso contrario
      */
     public boolean buscar(T valorBuscado) {
-        // ====================================================================
-        // TODO: [ESTUDIANTE] Escribe aqui tu algoritmo de busqueda lineal.
-        // Guiate con el diagrama de flujo proporcionado en el README.md.
-        // ====================================================================
+        if (estaVacia()) {
+        return  false;
+        }
+        Nodo<T> actual = this.cabeza;
+        int pos = 0;
+        while (actual != null) { 
+            if (actual.dato.equals(valorBuscado)) {
+                System.out.println("Elemento encontrado en la posicion: " + pos);
+                return true;
+            }
+            actual = actual.siguiente;
+            pos++;
+        }  
 
-        System.out.println("  [AVISO] El metodo buscar() aun no ha sido implementado por el estudiante.");
         return false;
-    }
+    }    
 
-    // ------------------------------------------------------------------------
+ // ------------------------------------------------------------------------
     // OPERACION 5: Eliminacion al Inicio - O(1)
     // ------------------------------------------------------------------------
     public T eliminarAlInicio() {
